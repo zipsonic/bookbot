@@ -1,8 +1,13 @@
 def main():
     bookpath = "books/frankenstein.txt"
-    numwords = countwords(openbook(bookpath))
-    print(f"{numwords} found in {bookpath}")
-    print(charfreq(openbook(bookpath)))
+    book_string = openbook(bookpath)
+    report = charfreq(book_string)
+    numwords = countwords(book_string)
+    print(f"Begin report of {bookpath}")
+    print(f"{numwords} words found in book")
+    for a in range (97,123):
+        print(f"{chr(a)} was found {report[chr(a)]} times")
+    print("---- END REPORT")
 
 def openbook(bookpath):
     with open(bookpath) as f:
